@@ -18,24 +18,25 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" style="background-color:rgb(63, 63, 73);">
             <div class="container px-5">
-                <a class="navbar-brand" style="background-color: #222527" href="#page-top">Volver Arriba</a>
+                <a class="navbar-brand" style="background-color: rgb(63, 63, 73)" href="#page-top">Volver Arriba</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" style="background-color: #222527" href="{% url 'padre'%}">Inicio</a></li>  
-                        <li class="nav-item"><a class="nav-link" style="background-color: #222527" href="{% url 'clientes' %}">Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link" style="background-color: #222527" href="{% url 'pedidos' %}">Pedidos</a></li>
-                        <li class="nav-item"><a class="nav-link" style="background-color: #222527" href="{% url 'sucursales' %}">Sucursales</a></li>
+                        <li class="nav-item"><a class="nav-link" style="background-color: rgb(63, 63, 73)" href="{% url 'padre'%}">Inicio</a></li>  
+                        <li class="nav-item"><a class="nav-link" style="background-color: rgb(63, 63, 73)" href="{% url 'clientes' %}">Clientes</a></li>
+                        <li class="nav-item"><a class="nav-link" style="background-color: rgb(63, 63, 73)" href="{% url 'pedidos' %}">Pedidos</a></li>
+                        <li class="nav-item"><a class="nav-link" style="background-color: rgb(63, 63, 73)" href="{% url 'sucursales' %}">Sucursales</a></li>
+                        <li class="nav-item"><a class="nav-link" style="background-color: rgb(63, 63, 73)" href="{% url 'aboutme' %}">About me</a></li>
                         
                         
 
                         {# DROPDOWN PARA LA CUENTA DE USUARIO #}
                         {% if request.user.is_authenticated %}
-                            <img src="{{request.user.imagen.imagen.url}}" alt="" style="height: 50px;width: 50px;">
+                            <img src="{{ request.user.imagen.imagen.url }}" alt="" style="height: 50px;width: 50px;">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(99, 99, 126); color: white; padding: 10px 15px;">
                                     {{ request.user.username }}
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -140,6 +141,9 @@
             </div>
         </section>
 
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5"> Fecha y hora actual: {{ current_datetime }} </div></footer>
+
+
         {% endblock %}
 
         <!-- Signup-->
@@ -227,15 +231,18 @@
             </div>
         </section>
         <!-- Footer-->
+         
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Golden Cafe 2024</div></footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="{% static 'appgoldencafe/js/scripts.js' %}"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        
     </body>
 </html>

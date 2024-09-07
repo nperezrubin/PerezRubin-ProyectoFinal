@@ -1,14 +1,14 @@
-Pre Entrega #3 - Nicolás Pérez Rubín
+Proyecto Final - Nicolás Pérez Rubín
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 Página de inicio: http://127.0.0.1:8000/
 
 La web contiene un nav con los siguientes botones: 
-- Inicio (padre.html) --> Utilizada para heredar templates. Contiene un mensaje exclusivo de esta vista: "Usted se encuentra en nuestra página de inicio. Bienvenido!"
-- Clientes (cliente.html - heredada de padre.html) --> Contiene valoraciones de 2 clientes, un formulario para agregar clientes, y otro para buscar clientes por nombre.
-- Pedidos (pedido.html - heredada de padre.html) --> Contiene los dos cafés más pedidos, un formulario para agregar pedidos, y otro para buscar pedidos por tipo de cafe.
-- Sucursales (sucursal.html - heredada de padre.html) --> Muestra las 2 sucursales actuales, y contiene un form para agregar sucursales y otro para buscar sucursales por barrio.
-
+- Inicio (padre.html) --> Utilizada para heredar templates. No requiere login.
+- Clientes (cliente.html - heredada de padre.html) --> Contiene valoraciones de 2 clientes, un formulario para agregar clientes, y otro para buscar clientes por nombre. Requiere iniciar sesión.
+- Pedidos (pedido.html - heredada de padre.html) --> Contiene los dos cafés más pedidos, un formulario para agregar pedidos, y otro para buscar pedidos por tipo de cafe. Requiere iniciar sesión.
+- Sucursales (sucursal.html - heredada de padre.html) --> Muestra las 2 sucursales actuales, y contiene un form para agregar sucursales y otro para buscar sucursales por barrio. Requiere iniciar sesión.
+- About Me (aboutme.html) --> Datos del creador del sitio web. No requiere login.
 
 
 
@@ -18,10 +18,15 @@ Notas:
 
 ADMIN
 http://127.0.0.1:8000/admin/
-superuser: nico_goldencafe
-email: contacto@goldencafe.com
-pass: goldencafe12345
+superuser: nico_admin
+email: nperezrubin@gmail.com
+pass: golden1234
 
+user2:
+username: manud
+password: manuloide1
+
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 --> Abrir carpeta del proyecto con VSC
 
@@ -38,8 +43,6 @@ en git Bash: (ir a la carpeta del proyecto, click derecho --> open git bash here
 - ls
 - git push (para llevarlo al repo) (luego hacer F5 en el repo y validar los cambios).
 
-user2:
-username: manud
-password: manuloide1
+
 
 

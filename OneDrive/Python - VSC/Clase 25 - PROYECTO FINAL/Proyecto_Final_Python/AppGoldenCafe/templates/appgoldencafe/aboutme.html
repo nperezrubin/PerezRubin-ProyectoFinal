@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+</head>
+<body>
+
+{% extends "AppGoldenCafe/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %} 
+
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+   
+    <header class="page-top" style="margin-top: 80px;">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0" style="border-color: antiquewhite;">Acerca de mí</h1>
+                    <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;">Conocé sobre el creador de esta página</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+         <!-- Content section 1-->
+         <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'appgoldencafe/assets/img/Nico2.jpg' %}" alt="..." width="200" height="200"/></div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                            <h2 class="display-4">Nicolás Pérez Rubín</h2>
+                            <p>"Mi nombre es Nicolás. Tengo 30 años y soy Licenciado en Administración de Empresas.</p>
+                            <p>Si bien estudié para armar mi propio emprendimiento, hace varios años que trabajo analizando datos y reportes en empresas, y luego de pensarlo mucho, me decidí por ampliar un poco las fronteras sumando un poco de programación a mi portfolio.</p>
+                            <p>No voy a mentir: fue muy difícil, un gran desafío que puso a prueba mi capacidad de resolver situaciones y mi fuerza de voluntad. Pero también fue muy entretenido e interesante.</p>
+                            <p>Aproveché este curso y este proyecto para imaginar un poco cómo sería la página de ese emprendimiento propio: Una tienda de café de especialidad.</p>
+                            <p>Sin dudas seguiré aprendiendo y luchando por cumplir esos sueños."</p>
+                            <p>Gracias por leer!</p>
+                            <p>Nico</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}
+
+</body>
+</html>

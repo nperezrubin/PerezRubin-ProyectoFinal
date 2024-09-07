@@ -59,20 +59,23 @@ def editar_perfil(request):
         # Crea una instancia del formulario UserEditForm, llenándolo con los datos enviados en la solicitud (request.POST y request.FILES) 
         # y utilizando la instancia del usuario actual como base para la edición
         if miFormulario.is_valid(): 
-            """
+            
             if miFormulario.cleaned_data.get('imagen'): # Si se ha proporcionado una nueva imagen en el formulario
-                if Imagen.objects.filter(user=usuario).exists(): # Si el usuario ya tiene una imagen asociada (existe un objeto Imagen para este usuario)
+                if Imagen.objects.filter(user = usuario).exists(): # Si el usuario ya tiene una imagen asociada (existe un objeto Imagen para este usuario)
                     usuario.imagen.imagen = miFormulario.cleaned_data.get('imagen') # Actualiza la imagen existente con la nueva
                     usuario.imagen.save()  
                 else:
-                    avatar = Imagen(user=usuario, imagen=miFormulario.cleaned_data.get('imagen')) # Si no tiene img asociada, crea un nuevo objeto Imagen y lo asocia al usuario actual
+                    avatar = Imagen(user = usuario, imagen = miFormulario.cleaned_data.get('imagen')) # Si no tiene img asociada, crea un nuevo objeto Imagen y lo asocia al usuario actual
                     avatar.save()
             
             miFormulario.save() # Guarda los cambios en los datos del usuario (incluyendo cualquier otro campo editado en el formulario)
             return render(request, "AppGoldenCafe/padre.html")
+            
+
             """
+            #Otra alternativa
             miFormulario.save()
-                      
+        
             imagen = miFormulario.cleaned_data.get('imagen')
             if imagen:
                 # Si se sube una nueva imagen, la asociamos al usuario
@@ -80,7 +83,7 @@ def editar_perfil(request):
                 instance.imagen = imagen
                 instance.save()
             return render(request, "AppGoldenCafe/padre.html", {'usuario': usuario})
-
+            """
     else:  # Si es un GET (carga inicial de la página)
         miFormulario = UserEditForm(instance=usuario) # Crea una instancia del formulario UserEditForm, prellenándolo con los datos del usuario actual
         return render(request, "users/editar_usuario.html", {"mi_form": miFormulario, "usuario": usuario})

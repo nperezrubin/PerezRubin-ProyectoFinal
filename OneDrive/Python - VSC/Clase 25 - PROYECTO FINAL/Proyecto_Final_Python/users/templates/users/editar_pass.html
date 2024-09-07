@@ -7,44 +7,45 @@
 </head>
 <body>
 
-{% extends 'AppGoldenCafe/padre.html' %}
+    {% extends 'AppGoldenCafe/padre.html' %}
 
-{% load static %}
+        {% load static %}
 
-{% block title %} Editar Contraseña {% endblock title %}
+            {% block title %} Editar Contraseña {% endblock title %}
 
-    {% block contenidoQueCambia %}
+                {% block contenidoQueCambia %}
 
-        <header class="page-top" style="margin-top: 80px;">
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-                <div class="d-flex justify-content-center">
-                    <div class="text-center">
-                        <h1 class="mx-auto my-0" style="border-color: antiquewhite;">Cambiar Contraseña</h1>
-                        <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;"> Ingrese su contraseña anterior y la nueva: </h2>
-                        
+                    <header class="page-top" style="margin-top: 80px;">
+                        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                            <div class="d-flex justify-content-center">
+                                <div class="text-center">
+                                    <h1 class="mx-auto my-0" style="border-color: antiquewhite;">Cambiar Contraseña</h1>
+                                    <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;"> Ingrese su contraseña anterior y la nueva: </h2>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+
+                            <table>
+                                {{ form.as_table }}
+                            </table>
+
+                            <div class="col"><input type="submit" value="Guardar Cambios" class="btn btn-secondary" style="background-color: rgb(99, 99, 126); color: white; padding: 5px 10px;"></div>
+                            <a class="btn btn-primary" href="{% url 'EditarPerfil' %}" style="background-color: rgb(99, 99, 126); color: white; padding: 5px 10px;"> Volver a Edicion de Usuario</a>
+                            <a class="btn btn-primary" href="{% url 'padre' %}" style="background-color: rgb(99, 99, 126); color: white; padding: 5px 10px;"> Volver al inicio</a>
+                            
+                            <p>                       
+                            </p>
+
+                        </form>
                     </div>
-                </div>
-            </div>
-        </header>
 
-        <form action="" method="POST">
-            {% csrf_token %}
-
-            <table>
-                {{ form.as_table }}
-            </table>
-
-
-            <a class="btn btn-primary" href="{% url 'CambiarPass' %}">Cambiar contraseña</a>
-            <a class="btn btn-primary" href="{% url 'EditarPerfil' %}">Volver a Edicion de Usuario</a>
-            <a class="btn btn-primary" href="{% url 'padre' %}">Volver al inicio</a>
-            
-            <p>                       
-            </p>
-
-        </form>
-
-    {% endblock %}
+                {% endblock %}
 
 
 </body>

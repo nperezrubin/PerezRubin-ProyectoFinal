@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'users'
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -57,6 +58,11 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    # Para modulo fecha y hora
+    'appgoldencafe.context_processors.current_datetime',
 ]
 
 WSGI_APPLICATION = 'Proyecto_Python_Final.wsgi.application'
@@ -108,6 +114,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#STATICFILES_DIRS = [
+#    BASE_DIR / 'static',
+#]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

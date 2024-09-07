@@ -4,13 +4,17 @@ from django.contrib.auth.decorators import login_required
 from AppGoldenCafe.models import Cliente, Pedido, Sucursal
 from AppGoldenCafe.forms import clienteFormulario, pedidoFormulario, sucursalFormulario
 
+from AppGoldenCafe.context_processors import current_datetime
+from datetime import datetime, date
+
 
 
 def inicio(req):
     return redirect('homepage')
 
 def homepage(req):
-    return render(req, "appgoldencafe/padre.html")
+    hoy = datetime.now().strftime('%d/%m/%Y, %H:%M')
+    return render(req, "AppGoldenCafe/padre.html", {'current_datetime': hoy})
 
 @login_required
 def cliente(request):
@@ -22,8 +26,8 @@ def cliente(request):
             miFormulario = clienteFormulario(request.POST)  # creamos un objeto formulario con los datos enviados
             if miFormulario.is_valid():
                 cliente = Cliente(nombre=miFormulario.cleaned_data['nombre'], email=miFormulario.cleaned_data['email']) #creo el objeto Cliente ya limpio
-                cliente.save()                              # Guardamos el cliente en la BBDD
-                return redirect('clientes')                 # redirigimos a clientes
+                cliente.save()                             
+                return redirect('clientes')                
             else:
                 return render(request, "AppGoldenCafe/cliente.html", {'form': miFormulario})
             
@@ -203,4 +207,9 @@ def editar_sucursal(request, barrio):
     else:
         form = sucursalFormulario(instance=sucursal)
         return render(request, 'AppGoldenCafe/editar_sucursal.html', {'form': form})
+
+def about_me(request):
+    return render(request, "appgoldencafe/aboutme.html")
+
+
 
