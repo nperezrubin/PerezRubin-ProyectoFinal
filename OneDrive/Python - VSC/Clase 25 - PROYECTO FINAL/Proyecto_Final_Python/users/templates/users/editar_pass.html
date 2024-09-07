@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - Editar Usuario - </title>
+</head>
+<body>
+
+{% extends 'AppGoldenCafe/padre.html' %}
+
+{% load static %}
+
+{% block title %} Editar Contraseña {% endblock title %}
+
+    {% block contenidoQueCambia %}
+
+        <header class="page-top" style="margin-top: 80px;">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h1 class="mx-auto my-0" style="border-color: antiquewhite;">Cambiar Contraseña</h1>
+                        <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;"> Ingrese su contraseña anterior y la nueva: </h2>
+                        
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <table>
+                {{ form.as_table }}
+            </table>
+
+
+            <a class="btn btn-primary" href="{% url 'CambiarPass' %}">Cambiar contraseña</a>
+            <a class="btn btn-primary" href="{% url 'EditarPerfil' %}">Volver a Edicion de Usuario</a>
+            <a class="btn btn-primary" href="{% url 'padre' %}">Volver al inicio</a>
+            
+            <p>                       
+            </p>
+
+        </form>
+
+    {% endblock %}
+
+
+</body>
+</html>
+
+
+

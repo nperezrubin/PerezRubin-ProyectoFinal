@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - Registro - </title>
+</head>
+<body>
+
+{% extends 'AppGoldenCafe/padre.html' %}
+
+{% load static %}
+
+{% block title %} Login {% endblock title %}
+
+{% block contenidoQueCambia %}
+
+    <header class="page-top" style="margin-top: 80px;">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0" style="border-color: antiquewhite;"> Registro de usuario </h1>
+                    <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;"> Complete los siguientes campos para registrarse: </h2>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {# Este div sólo está agregado para centrar el formulario en la página usando Bootstrap #}
+    <div class="d-flex justify-content-center">
+
+        {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
+        <div class="d-flex flex-column">
+
+            {# Mensaje personalizado en la vista de Login con estilos de Bootstrap #}
+            <p class="fs-5 fw-bold">{{ msg_register }}</p>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+                <input type="submit" value="Registrarse">
+
+
+                <p> 
+                </p>
+
+                <p>Ten en cuenta que la contraseña debe cumplir con los siguientes requisitos de seguridad: </p>
+                <p>1- No ser igual ni similar al nombre de usuario o email </p>
+                <p>2- Tener al menos 8 caracteres, y contener al menos un número </p>
+                <p>3- Evita contraseñas comunes e intenta crear una compleja </p>
+                
+                 
+                
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

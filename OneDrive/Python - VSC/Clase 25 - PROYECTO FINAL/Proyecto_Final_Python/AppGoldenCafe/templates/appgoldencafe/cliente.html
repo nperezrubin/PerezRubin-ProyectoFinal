@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Clientes</title>
+</head>
+<body>
+
+{% extends "AppGoldenCafe/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %} 
+
+<!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+   
+    <header class="page-top" style="margin-top: 80px;">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0" style="border-color: antiquewhite;">Nuestros Clientes</h1>
+                    <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;">Conocé qué dicen algunos de nuestros clientes que probaron Golden Cafe</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+     <!-- Content section 1-->
+     <section id="scroll">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'appgoldencafe/assets/img/alejandro_lopez.jpeg' %}" alt="..." /></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">Alejandro López</h2>
+                        <p>"Muy buena atención en la sucursal de Belgrano, y lo mas importante: riquísimo el café!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content section 2-->
+    <section>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'appgoldencafe/assets/img/claudia_martinez.jpeg' %}" alt="..." /></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-5">
+                        <h2 class="display-4">Claudia Martínez</h2>
+                        <p>"El Capuccino es increíble! Fui con mi perrito y nos atendieron de 10. Volveré seguro!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- NUEVA PARTE INCLUYENDO TODO -->
+     
+        <section>
+
+            <h1>Gestión de Clientes</h1>
+
+            <br>
+
+            <!-- Agregar Cliente -->
+            <h2 class="text-black-50 mx-auto mt-2 mb-2" style="border-color: antiquewhite; font-size: 20px;">Complete los campos para agregar un cliente:</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_table }}
+                <button type="submit" name="agregar_cliente">Agregar Cliente</button>
+            </form>
+       
+            <br>
+    
+            <!-- Buscar Cliente -->
+            <h2 class="text-black-50 mx-auto mt-2 mb-2" style="border-color: antiquewhite; font-size: 20px;">Ingrese el nombre del cliente a buscar:</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="nombre" placeholder="Nombre...">
+                <button type="submit" name="buscar_cliente">Buscar</button>
+            </form>
+
+            <br>
+    
+            <!-- Eliminar Cliente -->
+            <h2 class="text-black-50 mx-auto mt-2 mb-2" style="border-color: antiquewhite; font-size: 20px;">Ingrese el nombre del cliente a eliminar:</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="nombre" placeholder="Nombre...">
+                <button type="submit" name="eliminar_cliente">Eliminar</button>
+            </form>
+
+            <br>
+
+
+            <!-- Resultado Busqueda Cliente -->
+            {% if clientes %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th> Nombre /</th>
+                            <th> Email </th>
+                            
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for cliente in clientes %}
+                            <tr>
+                                <td>{{ cliente.nombre }}</td>
+                                <td>{{ cliente.email }}</td>
+                                <td>
+                                    <a href="{% url 'editar_cliente' cliente.nombre %}">Editar</a>                            
+                                </td>
+                                </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>  
+
+            {% else %}
+                {{ mensaje }}
+            {% endif %}
+
+        </section>  
+   
+
+
+{% endblock %}
+
+</body>
+</html>
+

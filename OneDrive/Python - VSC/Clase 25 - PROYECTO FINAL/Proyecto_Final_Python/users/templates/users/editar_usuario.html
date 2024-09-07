@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - Editar Usuario - </title>
+</head>
+<body>
+
+    {% extends 'AppGoldenCafe/padre.html' %}
+
+        {% load static %}
+
+            {% block title %} Editar Usuario {% endblock title %}
+
+                {% block contenidoQueCambia %}
+
+                    <header class="page-top" style="margin-top: 80px;">
+                        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                            <div class="d-flex justify-content-center">
+                                <div class="text-center">
+                                    <h1 class="mx-auto my-0" style="border-color: antiquewhite;">Edición de Usuario</h1>
+                                    <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;"> Complete los campos que desee editar: </h2>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    <h2>Editar perfil de {{usuario}}</h2>   
+
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <table>
+                            {{ mi_form.as_table }}
+                        </table>
+                        <input type="submit" value="Actualizar">
+                        <a class="btn btn-primary" href="{% url 'CambiarPass' %}" style="background-color: blue; color: white; padding: 15px 32px;" >Cambiar contraseña</a>
+                        <a class="btn btn-primary" href="{% url 'padre' %}" style="background-color: blue; color: white; padding: 15px 32px;" >Volver al inicio</a>
+                        
+                        <p>                       
+                        </p>
+
+                    </form>
+
+                {% endblock %}
+
+
+</body>
+</html>
+
