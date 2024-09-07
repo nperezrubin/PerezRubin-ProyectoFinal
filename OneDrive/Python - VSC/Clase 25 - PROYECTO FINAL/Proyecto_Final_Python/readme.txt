@@ -20,7 +20,7 @@ ADMIN
 http://127.0.0.1:8000/admin/
 superuser: nico_goldencafe
 email: contacto@goldencafe.com
-pass: goldencafe1234 /12345
+pass: goldencafe12345
 
 
 --> Abrir carpeta del proyecto con VSC
@@ -38,6 +38,8 @@ en git Bash: (ir a la carpeta del proyecto, click derecho --> open git bash here
 - ls
 - git push (para llevarlo al repo) (luego hacer F5 en el repo y validar los cambios)
 
-
+user2:
+username: manud
+password: manuloide1
 
 
